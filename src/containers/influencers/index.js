@@ -14,8 +14,6 @@ function Container({influencers = [], getInfluencers}) {
 
   if (influencers.length === 0) return <div>working buddy! :)</div>
 
-  console.log(influencers.length)
-
   return (
     <Grid>
       {influencers.map(influencer => (
