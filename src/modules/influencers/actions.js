@@ -1,53 +1,26 @@
-/* globals fetch */
-//import 'isomorphic-fetch'
 import {
   GET__INFLUENCERS__REQUEST,
   GET__INFLUENCERS__FAIL,
   GET__INFLUENCERS__SUCCESS,
 } from './types'
+import {bbddInfluencers} from './mocks'
 
-const fetchInfluencers = () => {
-  return Promise.resolve({
-    results: [
-      {
-        id: 0,
-        name: 'Victor',
-        lastName: 'Ribero',
-        location: 'Barcelona',
-        socials: [
-          {
-            name: 'Instragram',
-            userName: 'victorriberoguasch',
-            followers: 1500
-          },
-          {
-            name: 'Twitter',
-            userName: 'victorException',
-            followers: 500
-          }
-        ]
-      },
-      {
-        id: 0,
-        name: 'Kevin',
-        lastName: 'Callejas',
-        location: 'Vilassar',
-        socials: [
-          {
-            name: 'Instragram',
-            userName: 'kevincallejas93',
-            followers: 200
-          },
-          {
-            name: 'Twitter',
-            userName: 'kevitodev',
-            followers: 1700
-          }
-        ]
+const fetchInfluencers = (params) => {
+  const influencers = bbddInfluencers
+    .filter(influencer => {
+      if (
+        influencer.socials[0].followers >= params.instagram.minFollowers
+        && influencer.socials[0].followers >= params.twitter.minFollowers
+        && influencer.socials[1].followers <= params.instagram.maxFollowers
+        && influencer.socials[1].followers <= params.instagram.maxFollowers
+      ) {
+        return influencer
       }
-    ]
-  })
-  //return fetch().then(response => response.json())
+
+      return null;
+    })
+
+  return Promise.resolve({results: influencers})
 }
 
 function getInfluencersLoading() {
@@ -72,11 +45,15 @@ function success(response) {
 }
 
 // SideEffect
-export function getInfluencers() {
+const defaultProps = {
+  instagram: {minFollowers: 0, maxFollowers: 50000},
+  twitter: {minFollowers: 0, maxFollowers: 50000}
+}
+export function getInfluencers(params = defaultProps) {
   return function(dispatch) {
     dispatch(getInfluencersLoading())
 
-    return fetchInfluencers()
+    return fetchInfluencers(params)
       .then(response => dispatch(success(response)))
       .then(error => dispatch(fail(error)))
   }

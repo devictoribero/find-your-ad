@@ -8,12 +8,13 @@ function reducer(state = initialState, action) {
   switch(action.type) {
     case GET__INFLUENCERS__REQUEST:
       return {
-        results: []
+        ...state,
+        isLoading: true,
       }
 
     case GET__INFLUENCERS__SUCCESS:
-      console.log(action)
       return {
+        isLoading: false,
         results: action.payload.results
       }
 

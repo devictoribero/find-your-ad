@@ -1,0 +1,104 @@
+.influencer {
+  --avatar-size: 50px;
+  --social-logo-size: 20px;
+  background: white;
+  padding: 1.5rem;
+  box-shadow: 0 5px 14px -1px rgba(1,1,1,0.1);
+}
+
+.influencer .influencer__header {
+  display: grid;
+  grid-template-areas: "avatar name" "avatar location";
+  margin-bottom: 1rem;
+  grid-auto-columns: auto;
+  grid-template-columns: var(--avatar-size) auto;
+  column-gap: 0.75rem;
+}
+
+.influencer .influencer__avatar {
+  grid-area: avatar;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 999px;
+}
+
+.influencer .influencer__name {
+  grid-area: name;
+  margin: 0;
+}
+
+.influencer .influencer__location {
+  grid-area: location;
+  font-style: italic;
+  color: #6f6f6f;
+}
+
+.influencer .influencer__socials {
+  padding: 0 1rem;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.influencer .influencer__social:not(:last-of-type) {
+  margin-right: 1rem;
+}
+.influencer .influencer__social {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.influencer .influencer__social-logo {
+  font-weight: bold;
+  width: var(--social-logo-size);
+  height: var(--social-logo-size);
+  margin-right: 0.25rem;
+}
+
+.influencer .influencer__social-followers {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.influencer__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2rem;
+  column-gap: 1rem;
+  margin-top: 1rem;
+
+}
+.influencer__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 0.25px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.influencer__cta.influencer__cta--info {
+  color: blue;
+  border: 1px solid blue;
+}
+.influencer__cta.influencer__cta--info:hover
+.influencer__cta.influencer__cta--info:active, {
+  background: blue;
+  color: white;
+}
+
+.influencer__cta.influencer__cta--contact {
+  color: green;
+  border: 1px solid green;
+}
+.influencer__cta.influencer__cta--contact:hover,
+.influencer__cta.influencer__cta--contact:active {
+  background: green;
+  color: white;
+}
