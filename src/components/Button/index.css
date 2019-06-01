@@ -1,7 +1,8 @@
 .button {
-  margin: '1rem 0 0 0';
-  padding: '0.5rem 1rem';
-  width: '100%';
-  background: green;
+  margin: 2rem 0 0 0;
+  padding: 0.5rem 3rem;
+  background: var(--c-primary);
   color: white;
+  font-size: 1.25rem;
+  border-radius: 3px;
 }

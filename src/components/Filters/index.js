@@ -6,7 +6,7 @@ export function Filters({children}) {
     <form className="filters">
       <header className="filters__header">
         <h2 className="filters__title">
-          What are you looking for?
+          Find what you want!
         </h2>
       </header>
       

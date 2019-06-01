@@ -1,7 +1,9 @@
 .layout {
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 350px auto;
 }
 
 .layout__complementary,
-.layout__main { padding: 1rem; }
+.layout__main {
+  padding: 1rem;
+}

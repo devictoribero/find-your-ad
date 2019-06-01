@@ -1,3 +1,17 @@
 .social-filters {
   box-sizing: border-box;
+  padding: 0;
+  border: none;
+}
+
+.social-filters:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.social-filters__name {
+  font-weight: bold;
+  padding: 0;
+  font-variant: all-small-caps;
+  box-shadow: 0 1px 0 0 black;
+  margin-bottom: 0.5rem;
 }
