@@ -1,23 +1,11 @@
 import React from 'react'
 import './index.css'
 
-function Layout({name, children}) {
+export function SocialFilters({name, children}) {
   return (
-    <fieldset className="social-filters" aria-label={name}>
+    <fieldset className="social-filters">
+      <legend className="social-filters__name">{name}</legend>
       {children}
     </fieldset>
   )
-}
-
-function Name({name, children}) {
-  return (
-    <legend className="social-filters__name" aria-label={name}>
-      {children}
-    </legend>
-  )
-}
-
-export default {
-  Layout,
-  Name
 }
