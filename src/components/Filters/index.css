@@ -1,4 +1,6 @@
 .filters {
+  position: sticky;
+  top: 1rem;
   padding: 1.5rem;
   box-shadow: 0 5px 14px -1px rgba(1, 1, 1, 0.1);
   background: white;
